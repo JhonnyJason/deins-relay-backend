@@ -1,13 +1,33 @@
 ############################################################
-@local = https://localhost:6999
+# @local = https://localhost:6999
+@local = http://localhost:3333
 @deploy = https://
 
 ############################################################
 ### local test requests
-POST {{local}}/route
+POST {{local}}/getAuthCode
 content-type: application/json
 
 {
+    "recoveryCode": null
+}
+
+############################################################
+POST {{local}}/getAuthCode
+content-type: application/json
+
+{
+    "recoveryCode": ""
+}
+
+
+############################################################
+POST {{local}}/retrieveInterference
+content-type: application/json
+
+{
+    "message": "Was kannst du mir als Entwickler anbieten?",
+    "authCode": ""
 }
 
 ############################################################
